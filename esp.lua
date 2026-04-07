@@ -28,16 +28,18 @@ local RC = {
     Unknown  = { 80, 255, 120},  -- green
 }
 
--- ── Full Item → Rarity Map ────────────────────────────────────
--- ── Item Rarity Table (loaded from GitHub) ──────────────────
-local ITEM_RARITY = (function()
+-- ── Item Rarity Table (fetched once, cached in _G) ───────────
+if not _G.__itemRarity then
     local src = dx9.Get("https://raw.githubusercontent.com/TheRealChickon/absolvementEsp/refs/heads/main/items.lua")
     if src and src ~= "" then
         local ok, result = pcall(loadstring(src))
-        if ok and type(result) == "table" then return result end
+        if ok and type(result) == "table" then
+            _G.__itemRarity = result
+        end
     end
-    return {}
-end)()
+    if not _G.__itemRarity then _G.__itemRarity = {} end
+end
+local ITEM_RARITY = _G.__itemRarity
 
 -- ── Rarity lookup ─────────────────────────────────────────────
 local function getRarity(name)
