@@ -1,12 +1,9 @@
 -- Items rarity table for absolvementEsp
--- Edit this file on GitHub to add/update items
--- Loaded remotely by esp.lua via dx9.Get()
 
 local ITEM_RARITY = {}
 local function reg(tier, items)
     for _, v in ipairs(items) do ITEM_RARITY[v] = tier end
 end
-
 
 reg("Void", {
     "Void Essence",
@@ -75,7 +72,7 @@ reg("Unique", {
     "Gilded Greatsword","Gilded Longsword","Gilded Rapier","Gilded Shortsword","Soft Spot",
     "Shifting Sands","Gilded Bow","Mending Elixir","Flashspark Vial","Blood Plague","Rally",
     "War Banner","Necrotic Rot","Recovery","Pulse","Obsidian Obelisk","Cauterized Flesh",
-    "Inner Peace","Reverberating Slash","Frostbite","Double Stomp",
+    "Inner Peace","Reverberating Slash","Wind Implosion","Frostbite","Double Stomp",
     "Fatal Strike","Pyromania","Knight's Longsword","Moonshade Scythe","Betrayer's Longsword",
     "Double Tap","Briarlash","Giantslayer","Flood","Quicksand","Rapture","Transcendence",
     "Improved Ambush","Extinguisher","False Prophet","Keen Eye","Unbridled Rage",
